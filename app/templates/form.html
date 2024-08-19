@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Введите свои данные</h1>
+
+    <!-- Форма для ввода данных -->
+    <form method="POST">
+        <label for="name">Имя:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="city">Город:</label><br>
+        <input type="text" id="city" name="city" required><br><br>
+
+        <label for="hobby">Хобби:</label><br>
+        <input type="text" id="hobby" name="hobby" required><br><br>
+
+        <label for="age">Возраст:</label><br>
+        <input type="number" id="age" name="age" required><br><br>
+
+        <input type="submit" value="Отправить">
+    </form>
+
+    <!-- Если данные были отправлены, отображаем их -->
+    {% if name %}
+        <h2>Введенные данные:</h2>
+        <p><strong>Имя:</strong> {{ name }}</p>
+        <p><strong>Город:</strong> {{ city }}</p>
+        <p><strong>Хобби:</strong> {{ hobby }}</p>
+        <p><strong>Возраст:</strong> {{ age }}</p>
+    {% endif %}
+</body>
+</html>
